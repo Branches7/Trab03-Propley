@@ -2,7 +2,24 @@ class Usuario : Pessoa{
   private string senha;
   private string nivelAcesso;
 
-  public Usuario(){
-    
+  public Usuario(int id, string nome, string tel, string email, string senha, string nivelAcesso):base(id, nome, tel, email){
+    this.senha = senha;
+    this.nivelAcesso = nivelAcesso;
+  }
+
+  public string getSenha() {
+    return senha;
+  }
+
+  public void setSenha(string senha) {
+    this.senha = senha;
+  }
+
+  public string getNivelAcesso() {
+    return nivelAcesso;
+  }
+
+  public void setNivelAcesso(string nivelAcesso) {
+    this.nivelAcesso = nivelAcesso;
   }
 }
