@@ -1,13 +1,18 @@
 class Pessoa{
-  private int id;
-  private string nome;
-  private string tel;
-  private string email;
+  protected int id;
+  protected string nome;
+  protected string rg;
+  protected string email;
 
-  public Pessoa(int id, string nome, string tel, string email){
+  public Pessoa(int id, string nome){
     this.id = id;
     this.nome = nome;
-    this.tel = tel;
+  }
+
+  public Pessoa(int id, string nome, string rg, string email){
+    this.id = id;
+    this.nome = nome;
+    this.rg = rg;
     this.email = email;
 
   }
@@ -17,14 +22,22 @@ class Pessoa{
     set { id = value; } 
   }
 
+  public virtual int getId() {
+    return id;
+  }
+
+  public virtual string getNome() {
+    return nome;
+  }
+
   public string Nome{
     get { return nome; }
     set { nome = value; } 
   }
 
-  public string Tel{
-    get { return tel; }
-    set { tel = value; } 
+  public string Rg{
+    get { return rg; }
+    set { rg = value; } 
   }
 
   public string Email{

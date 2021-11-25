@@ -7,6 +7,14 @@ class Usuario : Pessoa{
     this.nivelAcesso = nivelAcesso;
   }
 
+  public Usuario(int id, string nome, string senha):base(id, nome){
+    this.senha = senha;
+  }
+
+  public override string getNome() {
+    return nome;
+  }
+
   public string getSenha() {
     return senha;
   }
