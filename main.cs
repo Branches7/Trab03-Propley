@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 
 class Program {
@@ -10,6 +11,11 @@ class Program {
     string resposta;
     int navegacao;
     int id = 1;
+
+    StreamWriter sw = new StreamWriter("Agenda.txt", true);
+    string _nome = "testes222";
+    string _tel = "testes";
+    string date = "12/12/2000 12:00";
 
      while (repetir == true){
 
@@ -32,16 +38,21 @@ class Program {
 
         case 2:
           Console.WriteLine("Insira seu Nome");
-          string nome = Console.ReadLine();
-          if(nome == pessoa.Nome){
+          _nome = Console.ReadLine();
+          
+          if(_nome == pessoa.Nome){
             Console.WriteLine("Insira seu Telefone");
-            string tel = Console.ReadLine();
-            Cliente cliente = new Cliente(id, nome, tel);
+            _tel = Console.ReadLine();
+            
 
-            Console.WriteLine("Escolha um serviço: ");
+            Cliente cliente = new Cliente(id, _nome, _tel);
+
+            Console.WriteLine("Escolha um serviço:\n 1- para Cabelo\n 2 - para Cabelo e Barba\n 3 -  para Barba");
             servico._servico(Convert.ToInt32(Console.ReadLine()));
             Console.WriteLine("Insira a data e hora: EX: 12/12/2000 12:00");
-            string date = Console.ReadLine();
+            date = Console.ReadLine();
+            sw.WriteLine(_nome+" - "+_tel+" - "+date);
+            sw.Close();
 
             IBarber agendamento = new Agendamento(id, cliente, servico, date);
             
@@ -56,7 +67,7 @@ class Program {
         
         Console.WriteLine("Deseja sair:(S/N)");
           resposta = Console.ReadLine();
-          if (resposta == "S"){
+          if (resposta == "S"  || resposta == "s"){
             repetir = false;
           }
       }
